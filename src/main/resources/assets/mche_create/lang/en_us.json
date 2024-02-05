@@ -1,0 +1,33 @@
+{
+  "block.mche_create.charred_log_lit": "Lit Charred Log",
+  "block.mche_create.charred_planks_lit": "Lit Charred Planks",
+  "block.mche_create.charred_log": "Charred Log",
+  "block.mche_create.charred_planks": "Charred Planks",
+
+  "block.mche_create.sulfur_ore": "Sulfur Ore",
+  "block.mche_create.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
+  "block.mche_create.uranium_ore": "Uranium Ore",
+  "block.mche_create.deepslate_uranium_ore": "Deepslate Uranium Ore",
+
+  "block.mche_create.raw_uranium_block": "Block of Raw Uranium",
+
+  "block.mche_create.sulfur_block": "Block of Sulfur",
+  "block.mche_create.uranium_block": "Block of Uranium",
+
+  "item.mche_create.sulfur": "Sulfur",
+
+  "item.mche_create.raw_uranium": "Raw Uranium",
+  "item.mche_create.crushed_raw_uranium": "Crushed Uranium Ore",
+  "item.mche_create.uranium_ingot": "Uranium Ingot",
+
+  "item.mche_create.hazmat_mask": "Hazmat Mask",
+  "item.mche_create.hazmat_gown": "Hazmat Gown",
+  "item.mche_create.hazmat_pants": "Hazmat Pants",
+  "item.mche_create.hazmat_boots": "Hazmat Boots",
+
+  "effect.mche_create.radiation": "Radiation",
+  "effect.mche_create.radiation.description": "Danno ad area continuo. Utilizzare una tuta hazmat completa per non subire danni. Le radiazioni danneggiano progressivamente la tuta hazmat.",
+  "death.attack.radiation": "%1$s §2was killed by radiation",
+
+  "itemGroup.mche_create_tab": "MCHE Create AddOn"
+}

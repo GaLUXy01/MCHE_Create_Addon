@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "mche_create:uranium_ore",
+    "mche_create:deepslate_uranium_ore"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "mche_create:block/charred_log_lit_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "mche_create:block/charred_log_lit"
+    },
+    "axis=z": {
+      "model": "mche_create:block/charred_log_lit_horizontal",
+      "x": 90
+    }
+  }
+}

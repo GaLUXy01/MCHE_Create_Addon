@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "mche_create:charred_log_lit"
+    }
+  ],
+  "results": [
+    {
+      "item": "mche_create:charred_log"
+    }
+  ]
+}

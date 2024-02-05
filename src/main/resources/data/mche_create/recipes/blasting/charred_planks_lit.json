@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.15,
+  "ingredient": {
+    "tag": "minecraft:planks"
+  },
+  "result": "mche_create:charred_planks_lit"
+}

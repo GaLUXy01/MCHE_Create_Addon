@@ -1,0 +1,8 @@
+{
+	"required": true,
+	"priority": 1000,
+	"package": "net.galuxy.mche_create.util.mixin",
+	"compatibilityLevel": "JAVA_17",
+
+	"minVersion": "0.8.5"
+}

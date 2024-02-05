@@ -1,0 +1,305 @@
+buildscript {
+    repositories {
+        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
+        maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = 'https://maven.parchmentmc.org' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public' }
+
+        mavenCentral()
+    }
+    dependencies {
+        //classpath "net.minecraftforge.gradle:ForgeGradle:${forgegradle_version}"
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: "${forgegradle_version}", changing: true
+        classpath "org.parchmentmc:librarian:${librarian_version}"
+        classpath "org.spongepowered:mixingradle:${mixingradle_version}"
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: "org.spongepowered.mixin"
+
+mixin {
+    add sourceSets.main, "${mod_id}.refmap.json"
+}
+
+boolean dev = System.getenv('RELEASE') == null || System.getenv('RELEASE').equals('false');
+// jozu: I use a gradle workspace with both projects.
+
+ext.buildNumber = System.getenv('BUILD_NUMBER')
+//version = "${minecraft_version}-${mod_version}"
+version = mod_version + (dev && buildNumber != null ? "-${buildNumber}" : '')
+
+group = "${mod_group}.${mod_id}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "${mod_id}"
+
+//sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + ' (' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+minecraft {
+    // The mappings can be changed at any time and must be in the following format.
+    // Channel:   Version:
+    // official   MCVersion             Official field/method names from Mojang mapping files
+    // parchment  YYYY.MM.DD-MCVersion  Open community-sourced parameter names and javadocs layered on top of official
+    //
+    // You must be aware of the Mojang license when using the 'official' or 'parchment' mappings.
+    // See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
+    //
+    // Parchment is an unofficial project maintained by ParchmentMC, separate from MinecraftForge
+    // Additional setup is needed to use their mappings: https://github.com/ParchmentMC/Parchment/wiki/Getting-Started
+    //
+    // Use non-default mappings at your own risk. They may not always work.
+    // Simply re-run your setup task after changing the mappings to update your workspace.
+    mappings channel: 'parchment', version: "${forge_parchment_version}"
+//    mappings channel: 'official', version: "${minecraft_version}"
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            //arg '-mixin.config=farmersdelight.mixins.json'
+
+            // Recommended logging data for a userdev environment
+            // The markers can be added/remove as needed separated by commas.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+            property 'forge.logging.console.level', 'debug'
+
+            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
+
+            mods {
+                mche_create {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+            //arg "-mixin.config=farmersdelight.mixins.json"
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+
+            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
+
+            mods {
+                mche_create {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        // This run config launches GameTestServer and runs all registered gametests, then exits.
+        // By default, the server will crash when no gametests are provided.
+        // The gametest system is also enabled by default for other run configs under the /test command.
+        gameTestServer {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+
+            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
+
+            mods {
+                mchecreate {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            args '--mod', "${mod_id}", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            //environment 'target', 'fmluserdevdata'
+
+            mods {
+                mche_create {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+repositories {
+//    maven {
+//        // JEI
+//        name = "Progwml6 maven"
+//        url = "https://dvs1.progwml6.com/files/maven/"
+//    }
+//    maven {
+//        // CraftTweaker
+//        name = "BlameJared"
+//        url = "https://maven.blamejared.com/"
+//    }
+    maven {
+        // Location for AppleSkin
+        url "https://maven.ryanliptak.com/"
+    }
+
+    maven {
+        // Location of the maven for mixed mappings, Registrate, and Flywheel
+        name 'tterrag maven'
+        url 'https://maven.tterrag.com'
+    }
+    maven {
+        // Location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        url 'https://www.cursemaven.com'
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+}
+
+// Include resources generated by data generators.
+sourceSets.main.resources {
+    srcDirs += 'src/generated/resources'
+}
+
+dependencies {
+    // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
+    // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
+    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+/* other minecraft dependencies are here */
+
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${forge_registrate_version}")
+    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${minecraft_version}:${forge_flywheel_version}")
+    implementation fg.deobf("com.simibubi.create:create-${minecraft_version}:${forge_create_version}:slim") { transitive = false }
+
+    implementation fg.deobf("curse.maven:createaddition-${forge_createaddition_project_id}:${forge_createaddition_version_id}")
+    implementation fg.deobf("curse.maven:create-alloyed-${forge_createalloyed_project_id}:${forge_createalloyed_version_id}")
+
+/* END of Dependencies list */
+
+    // compile against the JEI API but do not include it at runtime
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${forge_jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${forge_jei_version}")
+    // at runtime, use the full JEI jar for Forge
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${forge_jei_version}")
+
+    //Appleskin
+    compileOnly fg.deobf("squeek.appleskin:appleskin-forge:${forge_appleskin_version}:api")
+    runtimeOnly fg.deobf("squeek.appleskin:appleskin-forge:${forge_appleskin_version}")
+
+    // other QOL mods for advanced tests
+    runtimeOnly fg.deobf("curse.maven:jade-324717:4159759") //Jade
+    runtimeOnly fg.deobf("curse.maven:jade-addons-583345:4123459") //Jade Addons
+    runtimeOnly fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:3996391") //Just Enough Effect Descriptions (JEED)
+    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4862430") //Just Enough Resources (JER)
+    runtimeOnly fg.deobf("curse.maven:mouse-tweaks-60089:3871353") //Mouse Tweaks
+    runtimeOnly fg.deobf("curse.maven:curios-309927:3924518") //Curios
+    runtimeOnly fg.deobf("curse.maven:durability-tooltip-511040:4016227") //Durability Tooltip (contiene codice sperimentale)
+    runtimeOnly fg.deobf("curse.maven:supermartijn642s-config-lib-438332:3871792") //SuperMartijn642's Config Lib (richiesto per Durability Tooltip)
+    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:4293885") //Target Dummy
+    runtimeOnly fg.deobf("curse.maven:selene-499980:4299222") //Moonlight Lib
+
+    runtimeOnly fg.deobf("curse.maven:architectury-api-419699:4555749") //Architectury API (Fabric/Forge)
+    runtimeOnly fg.deobf("curse.maven:balm-531761:4442591") //Balm (Forge Edition)
+    runtimeOnly fg.deobf("curse.maven:advanced-xray-256256:3874945") //Advanced XRay
+    runtimeOnly fg.deobf("curse.maven:fps-monitor-548447:3921153") //FPS Monitor
+    runtimeOnly fg.deobf("curse.maven:configured-457570:4462837") //Configured
+    runtimeOnly fg.deobf("curse.maven:controlling-250398:4050343") //Controlling
+    runtimeOnly fg.deobf("curse.maven:durability-tooltip-511040:4016227") //Durability Tooltip
+    runtimeOnly fg.deobf("curse.maven:item-filters-309674:4553326") //Item Filters
+    runtimeOnly fg.deobf("curse.maven:journeymap-32274:4532924") //JourneyMap
+    runtimeOnly fg.deobf("curse.maven:waystones-245755:4635420") //Waystones
+
+//    def ctDep = fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-1.19.2:${crafttweaker_version}")
+//    compileOnly ctDep
+//    runtimeOnly ctDep
+
+//    annotationProcessor ctDep
+//    annotationProcessor "com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors:${crafttweaker_ap_version}"
+//    annotationProcessor "org.reflections:reflections:0.9.10" // CT dep
+//    annotationProcessor "com.google.code.gson:gson:2.8.7" // CT dep
+
+    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
+}
+
+mixin {
+    // add sourceSets.main, 'mchecreate.refmap.json'
+    config "${mod_id}.mixins.json"
+
+    debug.verbose = true
+    debug.export = true
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "${mod_id}",
+                "Specification-Vendor"    : "${mod_author}",
+                "Specification-Version"   : '1', // We are version 1 of ourselves
+                "Implementation-Title"    : project.jar.baseName,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "${mod_author}",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs"            : "${mod_id}.mixins.json"
+        ])
+    }
+}
+
+// Example configuration to allow publishing using the maven-publish plugin
+// This is the preferred method to reobfuscate your jar file
+jar.finalizedBy('reobfJar')
+// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
+// publish.dependsOn('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+
+//compileJava {
+//    options.compilerArgs << "-Acrafttweaker.processor.document.output_directory=${file('docsOut')}"
+//}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}

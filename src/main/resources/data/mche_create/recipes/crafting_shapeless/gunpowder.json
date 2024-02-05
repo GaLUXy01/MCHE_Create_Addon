@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "salt"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "mche_create:sulfur"
+    },
+    [
+      {
+        "item": "minecraft:coal"
+      },
+      {
+        "item": "minecraft:charcoal"
+      }
+    ],
+    {
+      "item": "salt:salt"
+    }
+  ],
+  "result": {
+      "item": "minecraft:gunpowder",
+      "count": 3
+  }
+}

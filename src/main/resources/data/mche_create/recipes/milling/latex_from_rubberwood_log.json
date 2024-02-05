@@ -1,0 +1,25 @@
+{
+  "type": "create:milling",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "myrtrees"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "myrtrees:rubberwood_log"
+    }
+  ],
+  "processingTime": 100,
+  "results": [
+    {
+      "count": 2,
+      "item": "myrtrees:latex"
+    },
+    {
+      "chance": 0.25,
+      "item": "myrtrees:latex"
+    }
+  ]
+}

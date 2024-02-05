@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "mche_create:crushed_raw_uranium"
+  },
+  "result": "mche_create:uranium_ingot"
+}

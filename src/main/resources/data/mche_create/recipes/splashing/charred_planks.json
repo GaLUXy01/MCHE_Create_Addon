@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "mche_create:charred_planks_lit"
+    }
+  ],
+  "results": [
+    {
+      "item": "mche_create:charred_planks"
+    }
+  ]
+}

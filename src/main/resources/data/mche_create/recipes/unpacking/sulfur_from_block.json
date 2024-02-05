@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "sulfur",
+  "ingredients": [
+    {
+      "item": "mche_create:sulfur_block"
+    }
+  ],
+  "result": {
+    "item": "mche_create:sulfur",
+    "count": 9
+  }
+}

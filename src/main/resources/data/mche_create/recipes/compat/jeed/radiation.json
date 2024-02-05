@@ -1,0 +1,26 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "mche_create:radiation"
+  },
+  "providers": [
+    {
+      "item": "mche_create:uranium_ore"
+    },
+    {
+      "item": "mche_create:deepslate_uranium_ore"
+    },
+    {
+      "item": "mche_create:raw_uranium_block"
+    },
+    {
+      "item": "mche_create:uranium_block"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mche_create:charred_planks"
+    }
+  ],
+  "result": {
+    "item": "minecraft:charcoal"
+  }
+}

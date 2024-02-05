@@ -1,0 +1,23 @@
+{
+  "replace": true,
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "P": {
+      "item": "minecraft:dried_kelp"
+    },
+    "T": {
+      "item": "create:copper_casing"
+    },
+    "N": {
+      "item": "create:copper_nugget"
+    }
+  },
+  "pattern": [
+    "T",
+    "P",
+    "N"
+  ],
+  "result": {
+    "item": "create:spout"
+  }
+}
