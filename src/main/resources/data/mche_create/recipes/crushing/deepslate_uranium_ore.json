@@ -9,11 +9,11 @@
   "results": [
     {
       "count": 2,
-      "item": "mche_create:crushed_raw_uranium"
+      "item": "create:crushed_raw_uranium"
     },
     {
       "chance": 0.75,
-      "item": "mche_create:crushed_raw_uranium"
+      "item": "create:crushed_raw_uranium"
     },
     {
       "chance": 0.75,

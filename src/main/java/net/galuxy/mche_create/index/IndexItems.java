@@ -22,7 +22,7 @@ public class IndexItems {
 
     public static final ItemEntry<Item>
         RAW_URANIUM = taggedIngredient("raw_uranium", forgeItemTag("raw_materials/uranium"), forgeItemTag("raw_materials")),
-        CRUSHED_URANIUM = taggedIngredient("crushed_raw_uranium", CRUSHED_RAW_MATERIALS.tag),
+        // CRUSHED_URANIUM = taggedIngredient("crushed_raw_uranium", CRUSHED_RAW_MATERIALS.tag), //usare quello della Create
         URANIUM_INGOT = taggedIngredient("uranium_ingot", forgeItemTag("ingots/uranium"), CREATE_INGOTS.tag);
 
 

@@ -4,7 +4,7 @@
   "experience": 1.5,
   "group": "uranium_ingot",
   "ingredient": {
-    "item": "mche_create:crushed_raw_uranium"
+    "item": "create:crushed_raw_uranium"
   },
   "result": "mche_create:uranium_ingot"
 }
