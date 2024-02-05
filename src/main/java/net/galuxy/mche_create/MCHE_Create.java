@@ -5,6 +5,7 @@ import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
+import net.galuxy.mche_create.compat.create.CreateItems;
 import net.galuxy.mche_create.compat.vanilla.VanillaItems;
 import net.galuxy.mche_create.index.*;
 import net.galuxy.mche_create.infrastructure.worldgen.ModConfiguredFeatures;
@@ -55,6 +56,7 @@ public class MCHE_Create {
 //        MaterialBlocks.register();
 //
         VanillaItems.register(eventBus);
+        CreateItems.register(eventBus);
 //
 //        OreGeneration_ERROR.init();
         ModConfiguredFeatures.register(eventBus);
