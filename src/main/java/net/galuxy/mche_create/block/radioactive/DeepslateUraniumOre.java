@@ -35,7 +35,7 @@ public class DeepslateUraniumOre extends DropExperienceBlock implements IBE<Deep
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        DeepslateUraniumOre_TE.setDamage(5, 1F, 1.5F, 0);
+        DeepslateUraniumOre_TE.setDamage(5, 1F, 1.7F, 0);
         return IndexTileEntities.DEEPSLATE_URANIUM_ORE_TE.create(pos, state);
     }
 

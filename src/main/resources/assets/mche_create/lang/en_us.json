@@ -14,6 +14,9 @@
   "block.mche_create.sulfur_block": "Block of Sulfur",
   "block.mche_create.uranium_block": "Block of Uranium",
 
+  "block.mche_create.sulfuric_acid": "Sulfuric Acid",
+  "item.mche_create.sulfuric_acid_bucket": "Sulfuric Acid Bucket",
+
   "item.mche_create.sulfur": "Sulfur",
 
   "item.mche_create.raw_uranium": "Raw Uranium",
@@ -28,6 +31,7 @@
   "effect.mche_create.radiation": "Radiation",
   "effect.mche_create.radiation.description": "Danno ad area continuo. Utilizzare una tuta hazmat completa per non subire danni. Le radiazioni danneggiano progressivamente la tuta hazmat.",
   "death.attack.radiation": "%1$s §2was killed by radiation",
+  "death.attack.acid": "%1$s was dissolved in acid",
 
   "itemGroup.mche_create_tab": "MCHE Create AddOn"
 }

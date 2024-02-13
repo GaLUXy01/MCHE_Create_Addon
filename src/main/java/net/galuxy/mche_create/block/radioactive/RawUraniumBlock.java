@@ -35,7 +35,7 @@ public class RawUraniumBlock extends Block implements IBE<RawUraniumBlock_TE> {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        RawUraniumBlock_TE.setDamage(8, 1F, 2F, 0);
+        RawUraniumBlock_TE.setDamage(8, 0.9F, 2F, 0);
         return IndexTileEntities.RAW_URANIUM_BLOCK_TE.create(pos, state);
     }
 

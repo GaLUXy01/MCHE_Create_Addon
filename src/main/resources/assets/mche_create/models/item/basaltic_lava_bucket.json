@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mche_create:item/basaltic_lava_bucket"
+  }
+}

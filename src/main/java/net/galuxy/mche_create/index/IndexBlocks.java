@@ -2,12 +2,16 @@ package net.galuxy.mche_create.index;
 
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import net.galuxy.mche_create.MCHE_Create;
 import net.galuxy.mche_create.block.charred_wood.BurningCharredBlock;
 import net.galuxy.mche_create.block.charred_wood.BurningCharredPillar;
 import net.galuxy.mche_create.block.radioactive.DeepslateUraniumOre;
 import net.galuxy.mche_create.block.radioactive.RawUraniumBlock;
 import net.galuxy.mche_create.block.radioactive.UraniumBlock;
 import net.galuxy.mche_create.block.radioactive.UraniumOre;
+import net.galuxy.mche_create.fluids.acid.SulfuricAcidFluidBlock;
+import net.galuxy.mche_create.item.radioactive.RadioactiveItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -16,6 +20,9 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.*;
