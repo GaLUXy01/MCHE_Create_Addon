@@ -4,6 +4,7 @@ import net.galuxy.mche_create.index.IndexDamageSources;
 import net.galuxy.mche_create.index.IndexSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -51,7 +52,7 @@ public class SulfuricAcidFluidBlock extends LiquidBlock {
             hurtSound = entity.hurt(IndexDamageSources.ACID, dmgMultiplier * (float) (armor ? 0.01D : 1.0D));
         }
         if (hurtSound) {
-            entity.playSound(IndexSoundEvents.ACID_BURN.getMainEvent());
+            entity.playSound(SoundEvents.FIRE_EXTINGUISH);
         }
     }
 

@@ -1,0 +1,45 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "mche_create:bauxite"
+    },
+    {
+      "item": "mche_create:bauxite"
+    },
+    {
+      "item": "mche_create:bauxite"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "amount": 250,
+      "fluid": "mche_create:sulfuric_acid"
+    },
+    {
+      "amount": 300,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    }
+  ],
+  "processingTime": 450,
+  "results": [
+    {
+      "count": 3,
+      "item": "create:crushed_raw_aluminum"
+    },
+    {
+      "amount": 250,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    }
+  ]
+}

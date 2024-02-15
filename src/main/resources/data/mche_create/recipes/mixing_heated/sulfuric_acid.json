@@ -1,0 +1,26 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "mche_create:sulfur"
+    },
+    {
+      "item": "mche_create:sulfur"
+    },
+    {
+      "item": "mche_create:sulfur"
+    },
+    {
+      "amount": 250,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "amount": 250,
+      "fluid": "mche_create:sulfuric_acid"
+    }
+  ]
+}

@@ -36,7 +36,7 @@ public class IndexBlocks {
     /**
      * /// -  CHARRED WOOD  - ///
      * <p>
-     *     # Fonte di charcoal rinnovabile e più efficiente
+     *     # Fonte di charcoal rinnovabile e più efficiente.
      * </p>
      *
      */
@@ -93,9 +93,29 @@ public class IndexBlocks {
                     .register();
 
     /**
+     * /// -  STONES  - ///
+     * <p>
+     *     # Pietre che si possono trovare in natura.
+     * </p>
+     *
+     */
+
+    public static final BlockEntry<Block> BAUXITE =
+            REGISTRATE.block("bauxite", Block::new)
+                    .initialProperties(Material.STONE)
+                    .properties(p -> p.strength(2.5F))
+                    .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .properties(p -> p.color(MaterialColor.TERRACOTTA_BROWN))
+                    .properties(p -> p.sound(SoundType.TUFF))
+                    .transform(pickaxeOnly())
+                    .item()
+                    .transform(customItemModel())
+                    .register();
+
+    /**
      * /// -  ORES  - ///
      * <p>
-     *     # Minerali grezzi che si trovare in natura
+     *     # Minerali grezzi che si possono trovare in natura.
      * </p>
      *
      */
@@ -165,8 +185,8 @@ public class IndexBlocks {
     /**
      * /// -  BLOCKS OF RAW ORE  - ///
      * <p>
-     *     # Blocchi di minerali grezzi che si possono trovare in natura
-     *     # Usati
+     *     # Blocchi di minerali grezzi che si possono trovare in natura.
+     *     # Usati per un miglior stoccaggio.
      * </p>
      *
      */
@@ -183,6 +203,14 @@ public class IndexBlocks {
                     .tag(Tags.Items.STORAGE_BLOCKS)
                     .build()
                     .register();
+
+    /**
+     * /// -  BLOCKS OF ORE  - ///
+     * <p>
+     *     # Blocchi di minerali lavorati, usati per un miglior stoccaggio.
+     * </p>
+     *
+     */
 
     public static final BlockEntry<Block> SULFUR_BLOCK =
             REGISTRATE.block("sulfur_block", Block::new)

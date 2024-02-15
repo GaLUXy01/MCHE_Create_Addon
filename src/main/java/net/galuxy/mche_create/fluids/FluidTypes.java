@@ -20,7 +20,7 @@ public class FluidTypes {
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, MCHE_Create.MOD_ID);
 
-    public static final RegistryObject<FluidType> SULFURIC_ACID_FLUID_TYPE = register("sulfuric_acid_fluid",
+    public static final RegistryObject<FluidType> SULFURIC_ACID_FLUID_TYPE = register("sulfuric_acid",
             FluidType.Properties.create().lightLevel(2).density(15).viscosity(5).sound(SoundAction.get("drink"),
                     SoundEvents.HONEY_DRINK));
 

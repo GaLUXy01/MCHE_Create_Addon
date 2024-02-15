@@ -4,6 +4,8 @@
   "block.mche_create.charred_log": "Charred Log",
   "block.mche_create.charred_planks": "Charred Planks",
 
+  "block.mche_create.bauxite": "Bauxite",
+
   "block.mche_create.sulfur_ore": "Sulfur Ore",
   "block.mche_create.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
   "block.mche_create.uranium_ore": "Uranium Ore",
@@ -14,7 +16,7 @@
   "block.mche_create.sulfur_block": "Block of Sulfur",
   "block.mche_create.uranium_block": "Block of Uranium",
 
-  "block.mche_create.sulfuric_acid": "Sulfuric Acid",
+  "fluid_type.mche_create.sulfuric_acid": "Sulfuric Acid",
   "item.mche_create.sulfuric_acid_bucket": "Sulfuric Acid Bucket",
 
   "item.mche_create.sulfur": "Sulfur",
