@@ -2,22 +2,39 @@ package net.galuxy.mche_create.infrastructure.worldgen;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
+
 import net.galuxy.mche_create.MCHE_Create;
 import net.galuxy.mche_create.index.IndexBlocks;
+
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
+import static net.minecraft.data.worldgen.features.OreFeatures.NATURAL_STONE;
+
 public class ModConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
             DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, MCHE_Create.MOD_ID);
+    /**
+     *  BAUXITE
+     */
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_BAUXITE = Suppliers.memoize(() -> List.of(
+            OreConfiguration.target(NATURAL_STONE, IndexBlocks.BAUXITE.get().defaultBlockState())
+    ));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> BAUXITE = CONFIGURED_FEATURES.register("bauxite",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_BAUXITE.get(), 36))); //dimensione del giacimento. molto rari se < 3
+
     /**
      *  SULFUR
      */

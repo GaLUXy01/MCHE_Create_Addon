@@ -28,6 +28,9 @@ public class IndexItems {
     public static final ItemEntry<Item> SULFUR =
             taggedIngredient("sulfur", forgeItemTag("raw_materials/sulfur"), forgeItemTag("raw_materials"));
 
+    public static final ItemEntry<Item> ALUMINUM_INGOT =
+            taggedIngredient("aluminum_ingot", forgeItemTag("ingots/aluminum"), forgeItemTag("ingots"));
+
    // public static final ItemEntry<Item>
         //RAW_URANIUM = taggedIngredient("raw_uranium", forgeItemTag("raw_materials/uranium"), forgeItemTag("raw_materials")),
         // CRUSHED_URANIUM = taggedIngredient("crushed_raw_uranium", CRUSHED_RAW_MATERIALS.tag), //usare quello della Create
@@ -104,6 +107,18 @@ public class IndexItems {
             .item("hazmat_boots", properties -> new ArmorItem(IndexArmorMaterials.HAZMAT, EquipmentSlot.FEET, properties))
             //.recipe(RecipeUtils.Smithing.steelItemRecipe(Items.CHAINMAIL_BOOTS))
             .register();
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * /// -  COPPER TIER  - ///

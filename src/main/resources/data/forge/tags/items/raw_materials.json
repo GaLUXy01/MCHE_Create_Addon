@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "#forge:raw_materials/sulfur",
     "#forge:raw_materials/uranium"
   ]
 }

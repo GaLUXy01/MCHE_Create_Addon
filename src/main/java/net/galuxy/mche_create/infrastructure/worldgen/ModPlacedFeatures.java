@@ -15,6 +15,14 @@ public class ModPlacedFeatures {
             DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, MCHE_Create.MOD_ID);
 
     /**
+     *  BAUXITE
+     */
+    public static final RegistryObject<PlacedFeature> BAUXITE_PLACED = PLACED_FEATURES.register("bauxite_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.BAUXITE.getHolder().get(),
+                    commonOrePlacement(8, // VeinsPerChunk
+                            HeightRangePlacement.uniform(VerticalAnchor.absolute(2), VerticalAnchor.absolute(60)))));
+
+    /**
      *  SULFUR
      */
     public static final RegistryObject<PlacedFeature> SULFUR_ORE_PLACED = PLACED_FEATURES.register("sulfur_ore_placed",

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "uranium_ingot",
+  "ingredient": {
+    "item": "create:crushed_raw_aluminum"
+  },
+  "result": "mche_create:aluminum_ingot"
+}

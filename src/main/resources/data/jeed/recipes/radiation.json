@@ -15,6 +15,12 @@
     },
     {
       "item": "mche_create:uranium_block"
+    },
+    {
+      "item": "mche_create:raw_uranium"
+    },
+    {
+      "item": "mche_create:uranium_ingot"
     }
   ],
   "conditions": [
