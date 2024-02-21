@@ -93,6 +93,36 @@ public class IndexBlocks {
                     .register();
 
     /**
+     * /// -  SANDS  - ///
+     * <p>
+     *     # Particolari tipi di sabbia che si possono trovare in natura.
+     * </p>
+     *
+     */
+
+    public static final BlockEntry<Block> OIL_SAND =
+            REGISTRATE.block("oil_sand", Block::new)
+                    .initialProperties(Material.SAND)
+                    .properties(p -> p.strength(0.5F))
+                    .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .properties(p -> p.color(MaterialColor.COLOR_BLACK))
+                    .properties(p -> p.sound(SoundType.SAND))
+                    .item()
+                    .transform(customItemModel())
+                    .register();
+
+    public static final BlockEntry<Block> OIL_RED_SAND =
+            REGISTRATE.block("oil_red_sand", Block::new)
+                    .initialProperties(Material.SAND)
+                    .properties(p -> p.strength(0.5F))
+                    .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .properties(p -> p.color(MaterialColor.COLOR_BLACK))
+                    .properties(p -> p.sound(SoundType.SAND))
+                    .item()
+                    .transform(customItemModel())
+                    .register();
+
+    /**
      * /// -  STONES  - ///
      * <p>
      *     # Pietre che si possono trovare in natura.

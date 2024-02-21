@@ -1,5 +1,10 @@
 package net.galuxy.mche_create.index;
 
+import com.mojang.math.Vector3f;
+import com.simibubi.create.AllFluids;
+import com.simibubi.create.foundation.utility.Color;
+import com.simibubi.create.infrastructure.config.AllConfigs;
+import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.FluidEntry;
 import net.galuxy.mche_create.MCHE_Create;
 import net.galuxy.mche_create.fluids.FluidTypes;
@@ -33,53 +38,24 @@ import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import static net.galuxy.mche_create.MCHE_Create.REGISTRATE;
 
 public class IndexFluids {
-//    public static final DeferredRegister<Fluid> FLUIDS =
-//            DeferredRegister.create(ForgeRegistries.FLUIDS, MCHE_Create.MOD_ID);
-//
-//    public static final RegistryObject<FlowingFluid> SOURCE_SULFURIC_ACID = FLUIDS.register("sulfuric_acid_fluid",
-//            () -> new ForgeFlowingFluid.Source(IndexFluids.SULFURIC_ACID_FLUID_PROPERTIES));
-//    public static final RegistryObject<FlowingFluid> FLOWING_SULFURIC_ACID = FLUIDS.register("flowing_sulfuric_acid",
-//            () -> new ForgeFlowingFluid.Flowing(IndexFluids.SULFURIC_ACID_FLUID_PROPERTIES));
-//
-//
-//    public static final ForgeFlowingFluid.Properties SULFURIC_ACID_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(
-//            FluidTypes.SULFURIC_ACID_FLUID_TYPE, SOURCE_SULFURIC_ACID, FLOWING_SULFURIC_ACID)
-//            .slopeFindDistance(2).levelDecreasePerBlock(2).block(ModFluidBlocks.SULFURIC_ACID)
-//            .bucket(ModFluidItems.SULFURIC_ACID_BUCKET);
-//
-//    public static void register(IEventBus eventBus) {
-//        FLUIDS.register(eventBus);
-//    }
 
-//    public static final FluidEntry<ForgeFlowingFluid.Flowing> SULFURIC_ACID =
-//            REGISTRATE.standardFluid("sulfuric_acid", new SulfuricAcidFluidBlock::new)
-//                    .lang("Sulfuric Acid")
-//                    .properties(b -> b.viscosity(1500)
-//                            .density(1400))
-//                    .fluidProperties(p -> p.levelDecreasePerBlock(2)
-//                            .tickRate(25)
-//                            .slopeFindDistance(3)
-//                            .explosionResistance(100f))
-//                    .register();
-
-//    public static final DeferredRegister<Block> FLUIDS =
-//            DeferredRegister.create(ForgeRegistries.BLOCKS, MCHE_Create.MOD_ID);
-//
-//    public static final RegistryObject<LiquidBlock> SULFURIC_ACID = FLUIDS.register("sulfuric_acid",
-//            () -> new SulfuricAcidFluidBlock(ACFluidRegistry.ACID_FLUID_SOURCE //,
-//                    //BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)
-//                            .noCollission()
-//                            .strength(100.0F)
-//                            .lightLevel(state -> 7)
-//                            .emissiveRendering((state, world, pos) -> false)
-//                            .noLootTable()
-//                            .replaceable()
-//            ));
-
+    public static final FluidEntry<ForgeFlowingFluid.Flowing> CRUDE_OIL =
+            REGISTRATE.standardFluid("crude_oil",
+                        SolidRenderedPlaceableFluidType.create(0x000000,
+                            () -> 0.03125f))
+                    .lang("Crude Oil")
+                    .properties(b -> b.viscosity(1500)
+                            .density(100))
+                    .fluidProperties(p -> p.levelDecreasePerBlock(3)
+                            .tickRate(25)
+                            .slopeFindDistance(2)
+                            .explosionResistance(100f))
+                    .register();
 
     public static final FluidEntry<ForgeFlowingFluid.Flowing> BASALTIC_LAVA =
             REGISTRATE.standardFluid("basaltic_lava", NoColorFluidAttributes::new)
@@ -208,4 +184,51 @@ public class IndexFluids {
         }
 
     }
+
+    private static class SolidRenderedPlaceableFluidType extends AllFluids.TintedFluidType {
+
+        private Vector3f fogColor;
+        private Supplier<Float> fogDistance;
+
+        public static FluidBuilder.FluidTypeFactory create(int fogColor, Supplier<Float> fogDistance) {
+            return (p, s, f) -> {
+                SolidRenderedPlaceableFluidType fluidType = new SolidRenderedPlaceableFluidType(p, s, f);
+                fluidType.fogColor = new Color(fogColor, false).asVectorF();
+                fluidType.fogDistance = fogDistance;
+                return fluidType;
+            };
+        }
+
+        private SolidRenderedPlaceableFluidType(Properties properties, ResourceLocation stillTexture,
+                                                ResourceLocation flowingTexture) {
+            super(properties, stillTexture, flowingTexture);
+        }
+
+        @Override
+        protected int getTintColor(FluidStack stack) {
+            return NO_TINT;
+        }
+
+        /*
+         * Removing alpha from tint prevents optifine from forcibly applying biome
+         * colors to modded fluids (this workaround only works for fluids in the solid
+         * render layer)
+         */
+        @Override
+        public int getTintColor(FluidState state, BlockAndTintGetter world, BlockPos pos) {
+            return 0x00ffffff;
+        }
+
+        @Override
+        protected Vector3f getCustomFogColor() {
+            return fogColor;
+        }
+
+        @Override
+        protected float getFogDistanceModifier() {
+            return fogDistance.get();
+        }
+
+    }
+
 }

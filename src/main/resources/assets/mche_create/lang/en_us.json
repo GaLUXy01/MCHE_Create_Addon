@@ -26,6 +26,12 @@
   "item.mche_create.crushed_raw_uranium": "Crushed Uranium Ore",
   "item.mche_create.uranium_ingot": "Uranium Ingot",
 
+  "item.mche_create.crude_oil_bucket": "Crude Oil Bucket",
+  "fluid.mche_create.crude_oil": "Crude Oil",
+  "block.mche_create.crude_oil": "Crude Oil",
+  "block.mche_create.oil_sand": "Oil Sand",
+  "block.mche_create.oil_red_sand": "Oil Red Sand",
+
   "item.mche_create.hazmat_mask": "Hazmat Mask",
   "item.mche_create.hazmat_gown": "Hazmat Gown",
   "item.mche_create.hazmat_pants": "Hazmat Pants",
