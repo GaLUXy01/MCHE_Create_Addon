@@ -235,9 +235,9 @@ public class IndexBlocks {
                     .register();
 
     /**
-     * /// -  BLOCKS OF ORE  - ///
+     * /// -  STORAGE BLOCKS  - ///
      * <p>
-     *     # Blocchi di minerali lavorati, usati per un miglior stoccaggio.
+     *     # Blocchi usati per un miglior stoccaggio.
      * </p>
      *
      */
@@ -251,6 +251,41 @@ public class IndexBlocks {
                     .transform(pickaxeOnly())
                     .tag(Tags.Blocks.STORAGE_BLOCKS)
                     .transform(tagBlockAndItem("storage_blocks/sulfur"))
+                    .tag(Tags.Items.STORAGE_BLOCKS)
+                    .build()
+                    .register();
+
+    public static final BlockEntry<SlimeBlock> RAW_RUBBER_BLOCK =
+            REGISTRATE.block("raw_rubber_block", SlimeBlock::new)
+                    .initialProperties(() -> Blocks.SLIME_BLOCK)
+                    .properties(p -> p.color(MaterialColor.SAND))
+                    .properties(p -> p.sound(SoundType.SLIME_BLOCK))
+                    .tag(Tags.Blocks.STORAGE_BLOCKS)
+                    .transform(tagBlockAndItem("storage_blocks/raw_rubber"))
+                    .tag(Tags.Items.STORAGE_BLOCKS)
+                    .build()
+                    .register();
+
+    public static final BlockEntry<Block> RUBBER_BLOCK =
+            REGISTRATE.block("rubber_block", Block::new)
+                    .initialProperties(() -> Blocks.BLACK_WOOL)
+                    .properties(p -> p.color(MaterialColor.COLOR_BLACK))
+                    .properties(p -> p.sound(SoundType.STONE))
+                    .tag(Tags.Blocks.STORAGE_BLOCKS)
+                    .transform(tagBlockAndItem("storage_blocks/rubber"))
+                    .tag(Tags.Items.STORAGE_BLOCKS)
+                    .build()
+                    .register();
+
+    public static final BlockEntry<Block> ALUMINUM_BLOCK =
+            REGISTRATE.block("aluminum_block", Block::new)
+                    .initialProperties(() -> Blocks.IRON_BLOCK)
+                    .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                    .properties(p -> p.requiresCorrectToolForDrops()
+                            .sound(SoundType.METAL))
+                    .transform(pickaxeOnly())
+                    .tag(Tags.Blocks.STORAGE_BLOCKS)
+                    .transform(tagBlockAndItem("storage_blocks/aluminum"))
                     .tag(Tags.Items.STORAGE_BLOCKS)
                     .build()
                     .register();

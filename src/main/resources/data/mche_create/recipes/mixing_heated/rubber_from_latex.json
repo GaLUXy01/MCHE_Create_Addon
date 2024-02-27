@@ -1,0 +1,26 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "myrtrees"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "myrtrees:latex"
+    },
+    {
+      "item": "myrtrees:latex"
+    },
+    {
+      "item": "mche_create:sulfur"
+    }
+  ],
+  "results": [
+    {
+      "item": "mche_create:rubber"
+    }
+  ]
+}

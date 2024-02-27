@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
-    "mche_create:bauxite",
     "mche_create:aluminum_block"
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "mche_create:lubrication_oil",
+    "mche_create:flowing_lubrication_oil"
+
+  ]
+}

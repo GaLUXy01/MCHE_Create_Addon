@@ -2,6 +2,7 @@ package net.galuxy.mche_create.compat.vanilla;
 
 import net.galuxy.mche_create.index.IndexTiers;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

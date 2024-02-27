@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "#forge:storage_blocks/aluminum_block",
+    "#forge:storage_blocks/raw_rubber_block",
+    "#forge:storage_blocks/rubber_block",
     "#forge:storage_blocks/sulfur_block",
     "#forge:storage_blocks/uranium_block"
   ]

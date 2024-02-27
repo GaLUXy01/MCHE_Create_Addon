@@ -52,7 +52,7 @@ public class SulfuricAcidFluidBlock extends LiquidBlock {
             hurtSound = entity.hurt(IndexDamageSources.ACID, dmgMultiplier * (float) (armor ? 0.01D : 1.0D));
         }
         if (hurtSound) {
-            entity.playSound(SoundEvents.FIRE_EXTINGUISH);
+            entity.playSound(SoundEvents.FIRE_EXTINGUISH, 0.5F, 0.5F);
         }
     }
 

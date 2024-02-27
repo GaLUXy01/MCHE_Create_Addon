@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mche_create:block/fluid/lubrication_oil"
+    }
+  }
+}

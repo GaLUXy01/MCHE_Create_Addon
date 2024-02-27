@@ -1,41 +1,74 @@
 {
+  "//": "Charred Wood",
   "block.mche_create.charred_log_lit": "Lit Charred Log",
   "block.mche_create.charred_planks_lit": "Lit Charred Planks",
   "block.mche_create.charred_log": "Charred Log",
   "block.mche_create.charred_planks": "Charred Planks",
 
-  "block.mche_create.bauxite": "Bauxite",
-
+  "//": "Sulfur",
   "block.mche_create.sulfur_ore": "Sulfur Ore",
   "block.mche_create.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
-  "block.mche_create.uranium_ore": "Uranium Ore",
-  "block.mche_create.deepslate_uranium_ore": "Deepslate Uranium Ore",
-
-  "block.mche_create.raw_uranium_block": "Block of Raw Uranium",
-
   "block.mche_create.sulfur_block": "Block of Sulfur",
-  "block.mche_create.uranium_block": "Block of Uranium",
-
-  "fluid_type.mche_create.sulfuric_acid": "Sulfuric Acid",
-  "item.mche_create.sulfuric_acid_bucket": "Sulfuric Acid Bucket",
-
+  "block.mche_create.sulfuric_acid_block": "Sulfuric Acid",
   "item.mche_create.sulfur": "Sulfur",
+  "item.mche_create.sulfuric_acid_bucket": "Sulfuric Acid Bucket",
+  "fluid_type.mche_create.sulfuric_acid": "Sulfuric Acid",
+
+  "//": "Oil",
+  "block.mche_create.oil_sand": "Oil Sand",
+  "block.mche_create.oil_red_sand": "Oil Red Sand",
+  "block.mche_create.crude_oil": "Crude Oil",
+  "item.mche_create.crude_oil_bucket": "Crude Oil Bucket",
+  "fluid.mche_create.crude_oil": "Crude Oil",
+
+  "//": "Lubrication Oil",
+  "block.mche_create.lubrication_oil": "Lubrication Oil",
+  "item.mche_create.lubrication_oil_bucket": "Lubrication Oil Bucket",
+  "fluid.mche_create.lubrication_oil": "Lubrication Oil",
+
+  "//": "Diesel",
+  "block.mche_create.diesel": "Diesel",
+  "item.mche_create.diesel_bucket": "Diesel Bucket",
+  "fluid.mche_create.diesel": "Diesel",
+
+  "//": "Fuel",
+  "block.mche_create.fuel": "Fuel",
+  "item.mche_create.fuel_bucket": "Fuel Bucket",
+  "fluid.mche_create.fuel": "Fuel",
+
+  "//": "Naphtha",
+  "block.mche_create.naphtha": "Naphtha",
+  "item.mche_create.naphtha_bucket": "Naphtha Bucket",
+  "fluid.mche_create.naphtha": "Naphtha",
+
+  "//": "Rubber",
+  "block.mche_create.raw_rubber_block": "Block of Raw Rubber",
+  "block.mche_create.rubber_block": "Block of Rubber",
+  "item.mche_create.rubber": "Rubber",
+
+  "//": "Aluminum",
+  "block.mche_create.bauxite": "Bauxite",
+  "block.mche_create.aluminum_block": "Block of Aluminum",
   "item.mche_create.aluminum_ingot": "Aluminum Ingot",
 
+  "//": "Uranium",
+  "block.mche_create.uranium_ore": "Uranium Ore",
+  "block.mche_create.deepslate_uranium_ore": "Deepslate Uranium Ore",
+  "block.mche_create.raw_uranium_block": "Block of Raw Uranium",
+  "block.mche_create.uranium_block": "Block of Uranium",
   "item.mche_create.raw_uranium": "Raw Uranium",
   "item.mche_create.crushed_raw_uranium": "Crushed Uranium Ore",
   "item.mche_create.uranium_ingot": "Uranium Ingot",
 
-  "item.mche_create.crude_oil_bucket": "Crude Oil Bucket",
-  "fluid.mche_create.crude_oil": "Crude Oil",
-  "block.mche_create.crude_oil": "Crude Oil",
-  "block.mche_create.oil_sand": "Oil Sand",
-  "block.mche_create.oil_red_sand": "Oil Red Sand",
-
+  "//": "Hazmat Armor",
   "item.mche_create.hazmat_mask": "Hazmat Mask",
   "item.mche_create.hazmat_gown": "Hazmat Gown",
   "item.mche_create.hazmat_pants": "Hazmat Pants",
   "item.mche_create.hazmat_boots": "Hazmat Boots",
+
+
+
+  "--": "other",
 
   "effect.mche_create.radiation": "Radiation",
   "effect.mche_create.radiation.description": "Danno ad area continuo. Utilizzare una tuta hazmat completa per non subire danni. Le radiazioni danneggiano progressivamente la tuta hazmat.",

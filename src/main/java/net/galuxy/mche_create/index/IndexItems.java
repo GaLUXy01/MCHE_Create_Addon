@@ -31,6 +31,10 @@ public class IndexItems {
     public static final ItemEntry<Item> ALUMINUM_INGOT =
             taggedIngredient("aluminum_ingot", forgeItemTag("ingots/aluminum"), forgeItemTag("ingots"));
 
+    public static final ItemEntry<Item> RUBBER =
+            REGISTRATE.item("rubber", Item::new)
+                    .register();
+
    // public static final ItemEntry<Item>
         //RAW_URANIUM = taggedIngredient("raw_uranium", forgeItemTag("raw_materials/uranium"), forgeItemTag("raw_materials")),
         // CRUSHED_URANIUM = taggedIngredient("crushed_raw_uranium", CRUSHED_RAW_MATERIALS.tag), //usare quello della Create

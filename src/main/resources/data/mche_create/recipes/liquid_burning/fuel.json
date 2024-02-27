@@ -1,0 +1,9 @@
+{
+	"type":"createaddition:liquid_burning",
+	"input": {
+      	"fluidTag": "forge:fuel",
+      	"amount": 1000
+	},
+	"burnTime": 30000,
+	"superheated": true
+}

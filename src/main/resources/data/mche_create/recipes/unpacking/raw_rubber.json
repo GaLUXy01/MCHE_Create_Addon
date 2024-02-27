@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "raw_rubber",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "myrtrees"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "mche_create:raw_rubber_block"
+    }
+  ],
+  "result": {
+    "item": "myrtrees:latex",
+    "count": 9
+  }
+}

@@ -11,6 +11,7 @@
     "mche_create:deepslate_uranium_ore",
     "mche_create:raw_uranium_block",
     "mche_create:sulfur_block",
+    "mche_create:aluminum_block",
     "mche_create:uranium_block"
   ]
 }

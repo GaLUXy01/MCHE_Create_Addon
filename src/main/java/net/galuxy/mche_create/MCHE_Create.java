@@ -6,6 +6,7 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.galuxy.mche_create.compat.create.CreateItems;
+import net.galuxy.mche_create.compat.createaddition.CAItems;
 import net.galuxy.mche_create.compat.vanilla.VanillaItems;
 import net.galuxy.mche_create.fluids.FluidTypes;
 import net.galuxy.mche_create.fluids.ModFluidBlocks;
@@ -72,6 +73,8 @@ public class MCHE_Create {
 
         VanillaItems.register(eventBus);
         CreateItems.register(eventBus);
+        //CAItems.register(eventBus);
+        CAItems.register();
 
 //        OreGeneration_ERROR.init();
         ModConfiguredFeatures.register(eventBus);

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "mche_create:fuel",
+    "mche_create:flowing_fuel"
+
+  ]
+}

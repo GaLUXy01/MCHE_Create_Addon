@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "amount": 250,
+      "fluid": "mche_create:crude_oil",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "mche_create:oil_sand"
+    }
+  ]
+}

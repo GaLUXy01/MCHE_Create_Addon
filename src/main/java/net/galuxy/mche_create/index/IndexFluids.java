@@ -50,12 +50,80 @@ public class IndexFluids {
                             () -> 0.03125f))
                     .lang("Crude Oil")
                     .properties(b -> b.viscosity(1500)
-                            .density(100))
+                            .density(100)
+                            .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
+                            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
+                    )
                     .fluidProperties(p -> p.levelDecreasePerBlock(3)
                             .tickRate(25)
                             .slopeFindDistance(2)
                             .explosionResistance(100f))
                     .register();
+
+    public static final FluidEntry<ForgeFlowingFluid.Flowing> LUBRICATION_OIL =
+            REGISTRATE.standardFluid("lubrication_oil",
+                            SolidRenderedPlaceableFluidType.create(0x000000,
+                                    () -> 0.5f))
+                    .lang("Lubrication Oil")
+                    .properties(b -> b.viscosity(1500)
+                            .density(500)
+                            .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+                    )
+                    .fluidProperties(p -> p.levelDecreasePerBlock(2)
+                            .tickRate(25)
+                            .slopeFindDistance(3)
+                            .explosionResistance(100f))
+                    .register();
+
+    public static final FluidEntry<ForgeFlowingFluid.Flowing> DIESEL =
+            REGISTRATE.standardFluid("diesel",
+                            SolidRenderedPlaceableFluidType.create(0x000000,
+                                    () -> 0.5f))
+                    .lang("Diesel")
+                    .properties(b -> b.viscosity(1500)
+                            .density(500)
+                            .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+                    )
+                    .fluidProperties(p -> p.levelDecreasePerBlock(2)
+                            .tickRate(25)
+                            .slopeFindDistance(3)
+                            .explosionResistance(100f))
+                    .register();
+
+    public static final FluidEntry<ForgeFlowingFluid.Flowing> FUEL =
+            REGISTRATE.standardFluid("fuel",
+                            SolidRenderedPlaceableFluidType.create(0x000000,
+                                    () -> 0.5f))
+                    .lang("Fuel")
+                    .properties(b -> b.viscosity(1500)
+                            .density(500)
+                            .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+                    )
+                    .fluidProperties(p -> p.levelDecreasePerBlock(2)
+                            .tickRate(25)
+                            .slopeFindDistance(3)
+                            .explosionResistance(100f))
+                    .register();
+
+    public static final FluidEntry<ForgeFlowingFluid.Flowing> NAPHTHA =
+            REGISTRATE.standardFluid("naphtha",
+                            SolidRenderedPlaceableFluidType.create(0x000000,
+                                    () -> 0.5f))
+                    .lang("Naphtha")
+                    .properties(b -> b.viscosity(1500)
+                            .density(500)
+                            .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+                    )
+                    .fluidProperties(p -> p.levelDecreasePerBlock(2)
+                            .tickRate(25)
+                            .slopeFindDistance(3)
+                            .explosionResistance(100f))
+                    .register();
+
 
     public static final FluidEntry<ForgeFlowingFluid.Flowing> BASALTIC_LAVA =
             REGISTRATE.standardFluid("basaltic_lava", NoColorFluidAttributes::new)
